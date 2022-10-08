@@ -9,28 +9,19 @@ const path = require("path");
 
 const fileOps = async () => {
   try {
-    const data = await fsPromises.readFile(
-      path.join(__dirname, "files", "starter.txt"),
-      "utf8"
-    );
+    // Read starter.txt file and save it in data parameter
+    const data = await fsPromises.readFile(path.join(__dirname, "files", "starter.txt"), "utf8");
     console.log(data);
+    // Delete the starter.txt file
     await fsPromises.unlink(path.join(__dirname, "files", "starter.txt"));
-    await fsPromises.writeFile(
-      path.join(__dirname, "files", "promiseWrite.txt"),
-      data
-    );
-    await fsPromises.appendFile(
-      path.join(__dirname, "files", "promiseWrite.txt"),
-      "\n\nNice to meet you"
-    );
-    await fsPromises.rename(
-      path.join(__dirname, "files", "promiseWrite.txt"),
-      path.join(__dirname, "files", "promiseComplete.txt")
-    );
-    const newData = await fsPromises.readFile(
-      path.join(__dirname, "files", "promiseComplete.txt"),
-      "utf8"
-    );
+    // Create a new file named promisWrite.txt in the files directory and provide its content with "data"
+    await fsPromises.writeFile(path.join(__dirname, "files", "promiseWrite.txt"), data);
+    // Append text to the promiseWrite.txt file
+    await fsPromises.appendFile(path.join(__dirname, "files", "promiseWrite.txt"), "\n\nNice to meet you");
+    // Rename the promiseWrite.txt to promiseComplete.txt
+    await fsPromises.rename(path.join(__dirname, "files", "promiseWrite.txt"), path.join(__dirname, "files", "promiseComplete.txt"));
+    // Read the new files text
+    const newData = await fsPromises.readFile(path.join(__dirname, "files", "promiseComplete.txt"), "utf8");
     console.log(newData);
   } catch (err) {
     console.error(err);
