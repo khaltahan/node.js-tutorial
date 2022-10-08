@@ -1,16 +1,30 @@
-// Calling format function from date-fns npm
-const { format } = require("date-fns");
-const { v4: uuid } = require("uuid");
+// Import logEvents function
+const logEvents = require("./logEvents");
 
-console.log(format(new Date(), "yyyyMMdd\tHH:mm:ss"));
+const EventEmitter = require("events");
 
-console.log(uuid());
+class MyEmitter extends EventEmitter {}
 
-console.log();
+// initialize object (create an instance of MyEmitter()
+const myEmitter = new MyEmitter();
 
-// In our package.json file, we could have versions starting with, ~, ^, or *
-// ~ only updates patches
-// ^ updates minor upgrades and bacthes
-// * updates everything
+// add listener for the log event
+myEmitter.on("log", (msg, sender) => {
+  logEvents(msg, sender);
+});
 
-// When uninstalling a devdependency, be sure to remove it from the start object in the json package
+setTimeout(() => {
+  // Emit event
+  myEmitter.emit("log", "log event emitted", "Khalid A.");
+}, 3000);
+
+// If we only want to send one argument
+// add listener for the log event
+// myEmitter.on("log", (msg) => {
+//   logEvents(msg);
+// });
+
+// setTimeout(() => {
+//   // Emit event
+//   myEmitter.emit("log", "log event emitted");
+// }, 3000);
