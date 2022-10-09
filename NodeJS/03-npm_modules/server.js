@@ -27,6 +27,8 @@ app.use("/", express.static(path.join(__dirname, "/public")));
 // Routes
 // Import the routes from the files under the routes folder
 app.use("/", require("./routes/root"));
+app.use("/register", require("./routes/register"));
+app.use("/auth", require("./routes/auth"));
 app.use("/employees", require("./routes/api/employees"));
 
 // If nothing has been found
