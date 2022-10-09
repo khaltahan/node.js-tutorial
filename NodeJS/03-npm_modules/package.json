@@ -1,11 +1,11 @@
 {
   "name": "03-npm_modules",
   "version": "1.0.0",
-  "description": "(index.js)",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index"
+    "start": "node server",
+    "nodemon": "node server"
   },
   "author": "",
   "license": "ISC",
