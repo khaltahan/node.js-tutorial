@@ -1,0 +1,6 @@
+20221013	15:11:09	bc787aa3-7f01-4b45-b0f9-ba6fb85b3786	PUT	undefined	/employees
+20221013	16:58:43	0a83510e-a708-4469-96b4-19410751361b	POST	undefined	/auth
+20221013	16:59:11	e0d034cd-a1e5-434e-b987-b66a3978b76d	GET	undefined	/logout
+20221013	16:59:41	e7c4c14d-dd0e-4ebd-9a13-85e8bd0e37be	GET	undefined	/logout
+20221013	16:59:47	7967fb32-6e89-4350-a8b2-1360aea573ef	GET	undefined	/logout
+20221013	17:02:40	da920142-1b59-48dd-b40b-8120cdafbc63	POST	undefined	/auth

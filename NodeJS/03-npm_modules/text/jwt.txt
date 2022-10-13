@@ -1,0 +1,28 @@
+JSON Webb Token
+
+Access Token = Short Time Before Expiration
+Refresh Token = Long Time Before Expiration
+
+Hazards: 
+XSS (Cross-Site Scripting)
+CSRF (CS Request Forgery)
+
+Access Token:
+- Sent as JSON
+- Client stores in memory
+- Do NOT store local storage or cookie
+
+Refresh Token:
+- Sent as httpOnly cookie- Not accessible via JavaScript
+- Must have expiry at some point
+
+Access Token Process:
+- Issued at Authorization
+- Client uses for API Access until expires
+- Verified with Middleware
+- New token issued at Refresh Request
+
+Refresh Token Process:
+- Issued at Authorization
+- Client uses to request new Access Token- - Verified with endpoint and database
+- Must be allowed to expire or logout
